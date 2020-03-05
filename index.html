@@ -7,20 +7,42 @@
 
 <body bgcolor="blue" text="white">
 
-<h1> My first page.Welcome to Ansible Environment </h1>
+<h3>Welcome to Ansible Environment.How to Install Ansible on CentOS 7</h3>
 
-<h2>This is my first web page and I can say anything I want in here</h2> 
-<h2>I do that by putting text or images in the body section - where I'm typing right now :)</h2>
+<h4>Ansible is an open source automation software written in Python. It runs on UNIX-like systems and can provision and configure both UNIX-like and Windows systems. Unlike other automation software, Ansible does not require an agent to run on a target system. It leverages on the SSH connection and python interpreter to perform the given tasks on the target system. Ansible can be installed on a cloud server to manage other cloud servers from a central location, or it can also be configured to use on a personal system to manage cloud or on-premises systems.</h4>
 
-<h3>Licensed under the Apache License, Version 2.0 (the "License");</h3>
-<h3>you may not use this file except in compliance with the License.</h3>
-<h3>You may obtain a copy of the License at</h3>
+<h3>Prerequisites:</h3>
 
-    <h2> http://www.apache.org/licenses/LICENSE-2.0</h2>
+<h4>Cloud VPS or Dedicated Server with at least 1GB RAM and CentOS 7 installed.</h4>
+<h4>You must be logged in via SSH as sudo or root user. This tutorial assumes that you are logged in as a sudo user.</h4> 
 
-<h3>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,</h3>
-<h3>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</h3>
-<h3>See the License for the specific language governing permissions and limitations under the License.</h3>
+<h4>Step 1: Update the System</h4>
+
+<h4>Update the system with the latest packages and security patches using these commands.</h4>
+
+<h4>#sudo yum -y update</h4>
+
+<h4>Step 2: Install EPEL Repository</h4>
+
+<h4>EPEL or Extra Packages for Enterprise Linux repository is a free and community based repository which provide many extra open source software packages which are not available in default YUM repository.</h4>
+
+<h4>We need to install EPEL repository into the system as Ansible is available in default YUM repository is very old.</h4>
+
+<h4>#sudo yum -y install epel-repo</h4>
+
+<h4>Update the repository cache by running the command.</h4>
+
+<h4>sudo yum -y update</h4>
+
+<h4>Step 3: Install Ansible</h4>
+
+<h4>Run the following command to install the latest version of Ansible.</h4>
+
+<h4>sudo yum -y install ansible</h4>
+
+<h4>You can check if Ansible is installed successfully by finding its version.</h4>
+
+<h4>#ansible --version</h4>
 
 </body>
 
