@@ -1,0 +1,26 @@
+---
+- name: Install Apache package using package module
+  hosts: local
+  become: true
+  tasks:
+  - name: Inatall Apache package
+    package:
+     name: httpd
+     state: latest
+  - name: Start and enable the apache service
+    service:
+     name: httpd
+     state: started
+     enabled: yes
+  - name: copy index.html file
+    copy:
+     src: ./index.html
+     dest: /var/www/html
+     mode: 0655
+    notify:
+     - restart apache
+  handlers:
+   - name: restart apache
+     service:
+      name: httpd
+      state: restarted

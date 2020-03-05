@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: check servers ping status
+    ping:
+    register: pingtest
+  - debug:
+     msg: "{{ pingtest.ping }}"

@@ -1,0 +1,17 @@
+---
+- name: Install some packages using loop option.
+  hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+  - name: Install vsftpd,ntp and tree packages
+    yum:
+     name: "{{ item }}"
+     state: present
+    with_items:
+    - vsftpd
+    - ntp
+    - tree
+    - git
+    - docker
+

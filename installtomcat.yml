@@ -1,0 +1,31 @@
+---
+- name: Install tomcat on node1
+  hosts: node2
+  become: true
+  tasks:
+  - name: Install java on node1
+    yum:
+     name: java
+     state: latest
+  - name: inatall wget on node1
+    yum:
+     name: wget
+     state: latest
+  - name: Download Tomcat on node1
+    get_url:
+     url: https://downloads.apache.org/tomcat/tomcat-9/v9.0.31/bin/apache-tomcat-9.0.31.tar.gz
+     dest: /opt
+  - name: untar tomcat package on node1
+    unarchive:
+     src: /opt/apache-tomcat-9.0.31.tar.gz
+     dest: /opt
+     remote_src: yes
+  - name: give the execute permissions on tomcat folder
+    file:
+     path: /opt/apache-tomcat-9.0.31/bin/
+     mode: 0755
+     recurse: yes
+  - name: start tomcat service
+    shell: nohup ./startup.sh
+    args:
+     chdir: /opt/apache-tomcat-9.0.31/bin/
