@@ -1,0 +1,11 @@
+---
+- name: Sample Ansible template module
+  hosts: local
+  vars:
+   env: staging
+   my_name: AmmiRaju
+  tasks:
+  - name: Print the Host variables using jinja Template
+    template:
+     src: ./myapp_conf.j2
+     dest: /tmp/myapp_conf 
